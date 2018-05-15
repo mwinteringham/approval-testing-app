@@ -1,0 +1,1 @@
+{"company":"Ford","make":"Focus","price":20000,"datePurchased":"2018-05-15","image":"https://upload.wikimedia.org/wikipedia/commons/0/09/2017_Ford_Focus_Zetec_Edition_1.0_Front.jpg"}

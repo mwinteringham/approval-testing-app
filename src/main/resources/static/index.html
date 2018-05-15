@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approval testing practise app</title>
+    <style>
+        img {
+            width: 600px;
+            height: 310px;
+        }
+
+        .container {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 75px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .details {
+            color: navy;
+            text-align: right;
+            float: right;
+        }
+
+        .buttonHolder {
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $.get( "/car", function( data ) {
+            $("#image").attr("src", data.image);
+            $("#company").html(data.company);
+            $("#make").html(data.make);
+            $("#price").html(data.price);
+            $("#purchase").html(data.datePurchased);
+        });
+
+        var postToggle = function(){
+            $.post( "/toggle", function( data ) {
+                location.reload();
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="" id="image" />
+        <h1>Company: <div class="details" id="company">Unknown</div></h1>
+        <h1>Make: <div class="details" id="make">Unknown</div></h1>
+        <h1>Price: <div class="details" id="price">Unknown</div></h1>
+        <h1>Purchase date: <div class="details" id="purchase">Unknown</div></h1>
+        <div class="buttonHolder">
+            <button onclick="postToggle()">Toggle</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,7 +9,7 @@ public class CarModelTest {
 
     @Test
     public void testModel(){
-        CarModel carModel = new CarModel("SEAT", "Ibiza", 4000, LocalDate.now(), "/link/to/car");
+        CarModel carModel = new CarModel("SEAT", "Ibiza", 4000, LocalDate.of(2018, 01, 01), "/link/to/car");
 
         Approvals.verify(carModel);
     }

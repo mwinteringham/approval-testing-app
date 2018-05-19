@@ -27,4 +27,9 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(null);
     }
 
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public ResponseEntity<InfoModel> returnStatus(){
+        return ResponseEntity.ok(new InfoModel());
+    }
+
 }

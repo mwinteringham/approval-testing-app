@@ -5,20 +5,19 @@
     <title>Approval testing practise app</title>
     <style>
         img {
-            width: 600px;
-            height: 310px;
+            width: 400px;
         }
 
         .container {
-            width: 600px;
+            width: 400px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 75px;
+            margin-top: 20px;
             border: 1px solid black;
             padding: 10px;
         }
 
-        .details {
+        .detail {
             color: navy;
             text-align: right;
             float: right;
@@ -34,12 +33,24 @@
     </style>
     <script src="./jquery.js"></script>
     <script>
+        function guid() {
+          function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+          }
+          return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+        }
+
         $.get( "/car", function( data ) {
             $("#image").attr("src", data.image);
             $("#company").html(data.company);
             $("#make").html(data.make);
             $("#price").html(data.price);
             $("#purchase").html(data.datePurchased);
+
+            $("#timestamp").html(Date.now());
+            $("#guid").attr("value", guid());
         });
 
         var postToggle = function(){
@@ -51,14 +62,18 @@
 </head>
 <body>
     <div class="container">
-        <img src="" id="image" />
-        <h1>Company: <div class="details" id="company">Unknown</div></h1>
-        <h1>Make: <div class="details" id="make">Unknown</div></h1>
-        <h1>Price: <div class="details" id="price">Unknown</div></h1>
-        <h1>Purchase date: <div class="details" id="purchase">Unknown</div></h1>
+        <div class="details">
+            <img src="" id="image" />
+            <h2>Company: <div class="detail" id="company">Unknown</div></h2>
+            <h2>Make: <div class="detail" id="make">Unknown</div></h2>
+            <h2>Price: <div class="detail" id="price">Unknown</div></h2>
+            <h2>Purchase date: <div class="detail" id="purchase">Unknown</div></h2>
+        </div>
+        <p>Last updated: <span class="detail" id="timestamp"></span></p>
         <div class="buttonHolder">
             <button onclick="postToggle()">Toggle</button>
         </div>
+        <input type="hidden" id="guid" value="" />
     </div>
 </body>
 </html>

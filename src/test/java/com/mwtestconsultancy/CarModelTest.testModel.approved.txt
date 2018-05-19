@@ -1,1 +1,1 @@
-CarModel{company='SEAT', make='Ibiza', price=4000, datePurchased=2018-05-15, image='/link/to/car'}
+CarModel{company='SEAT', make='Ibiza', price=4000, datePurchased=2018-01-01, image='/link/to/car'}
